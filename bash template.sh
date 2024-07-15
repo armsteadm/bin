@@ -9,7 +9,7 @@ USAGE="Usage: command -ihv args"
 
 # --- Options processing -------------------------------------------
 if [ $# == 0 ] ; then
-    echo $USAGE
+    echo "$USAGE"
     exit 1;
 fi
 
@@ -24,7 +24,7 @@ while getopts ":i:vh" optname
         echo "-i argument: $OPTARG"
         ;;
       "h")
-        echo $USAGE
+        echo "$USAGE"
         exit 0;
         ;;
       "?")
@@ -42,7 +42,7 @@ while getopts ":i:vh" optname
     esac
   done
 
-shift $(($OPTIND - 1))
+shift $((OPTIND - 1))
 
 param1=$1
 param2=$2
@@ -54,12 +54,12 @@ if [ -f "$LOCK_FILE" ]; then
    exit
 fi
 
-trap "rm -f $LOCK_FILE" EXIT
-touch $LOCK_FILE
+trap 'rm -f $LOCK_FILE' EXIT
+touch "$LOCK_FILE"
 
 # --- Body --------------------------------------------------------
 #  SCRIPT LOGIC GOES HERE
-echo $param1
-echo $param2
+echo "$param1"
+echo "$param2"
 # -----------------------------------------------------------------
 
