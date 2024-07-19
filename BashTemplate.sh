@@ -5,13 +5,18 @@
 # Prints the type of the system (so that vendor-specific code can be executed).
 # "?" is returned if this script can not determine the system's type.
 #
+#NOW=$( date '+%Y%m%d%H%M%S' )
+
+echo "BashTemplate started at $( date '+%Y%m%d%H%M%S' ) "
+
+
 USAGE="Usage: command -ihv args"
 
 # --- Options processing -------------------------------------------
-if [ $# == 0 ] ; then
-    echo "$USAGE"
-    exit 1;
-fi
+#if [ $# == 0 ] ; then
+#    echo "$USAGE"
+#    exit 1;
+#[fi
 
 while getopts ":i:vh" optname
   do
@@ -63,3 +68,4 @@ echo "$param1"
 echo "$param2"
 # -----------------------------------------------------------------
 
+echo "BashTemplate ended at $( date '+%Y%m%d%H%M%S') "
